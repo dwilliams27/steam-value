@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { getDisplayKeyPrompt, SteamState } from 'src/libs/steam';
+import { getDisplayKeyPrompt, loadApiKey, setApiKey, SteamState } from 'src/libs/steam';
 import { SteamService } from 'src/libs/steam/steam.service';
 
 @Component({
@@ -15,10 +15,6 @@ export class RootComponent implements OnInit {
   constructor(private steamService: SteamService, private store: Store<SteamState>) { }
 
   ngOnInit(): void {
-    this.steamService.getApiKey();
-    // this.steam.fetchUserDetails().subscribe(response => {
-    //   console.log(response);
-    // });
+    this.store.dispatch(loadApiKey());
   }
-
 }

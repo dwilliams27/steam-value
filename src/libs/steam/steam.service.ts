@@ -2,6 +2,7 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { select, Store } from "@ngrx/store";
 import { tap } from 'rxjs/operators';
+import { STEAM_API_COOKIE_NAME } from "../common";
 import { CookieService } from "../utils/cookie.service";
 import { promptForApiKey, setApiKey } from "./state/steam.actions";
 import { SteamState } from "./state/steam.reducer";
@@ -30,7 +31,6 @@ export class SteamService {
       return cookie;
     }
     console.log('No cookie');
-    this.store.dispatch(promptForApiKey());
     return null;
   }
 
@@ -39,7 +39,6 @@ export class SteamService {
   }
 
   setApiKeyCookie(key: string) {
-    this.cookieService.setCookie('steam-value/steam-api-key', key, 15);
-    this.store.dispatch(setApiKey({ key }));
+    this.cookieService.setCookie(STEAM_API_COOKIE_NAME, key, 15);
   }
 }

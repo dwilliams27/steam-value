@@ -8,6 +8,7 @@ import { RootComponent } from './root/root.component';
 import { STEAM_STATE_KEY, SteamModule, steamReducer } from 'src/libs/steam';
 import { StoreModule } from '@ngrx/store';
 import { KeyPromptComponent } from './key-prompt/key-prompt.component';
+import { EffectsModule } from '@ngrx/effects';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { KeyPromptComponent } from './key-prompt/key-prompt.component';
     SteamModule,
     StoreModule.forRoot({
       [STEAM_STATE_KEY]: steamReducer
-    })
+    }),
+    EffectsModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -9,4 +9,6 @@ export const fetchUserDetailsFail = createAction('[Steam service] Fetch user det
 
 export const setApiKey = createAction('[Steam service] Set api key', props<{key: string}>());
 
+export const loadApiKey = createAction('[Steam service] Load api key from cookie into state');
+
 export const promptForApiKey = createAction('[Steam service] Prompt user for api key');

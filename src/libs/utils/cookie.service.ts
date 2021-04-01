@@ -1,4 +1,4 @@
-//https://gist.github.com/greatb/c791796c0eba0916e34c536ab65802f8
+//based on https://gist.github.com/greatb/c791796c0eba0916e34c536ab65802f8
 import { Injectable } from '@angular/core';
 
 @Injectable()
@@ -26,6 +26,7 @@ export class CookieService {
   }
 
   public setCookie(name: string, value: string, expireDays: number, path: string = "") {
+    console.log('Setting cokkie', name)
     let d: Date = new Date();
     d.setTime(d.getTime() + expireDays * 24 * 60 * 60 * 1000);
     let expires: string = "expires=" + d.toUTCString();
